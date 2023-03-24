@@ -40,8 +40,37 @@ const message = {
         return `You should ${seriousAction} and ${sillyAction}.`;
     },
 
+}
+
+
+const generateMessage = event => {
+    let advice = '';
+    if (event.target === happyButton){
+        advice = "That's great!";
+        document.getElementById('life-coach').innerHTML = `<h1> ${advice} ${message.giveAdvice()}</h1>`;
+    } else if (event.target === neutralButton) {
+        advice = "Ok, well..";
+        document.getElementById('life-coach').innerHTML = `<h1> ${advice} ${message.giveAdvice()}</h1>`;
+    } else if (event.target === sadButton) {
+        advice = "Sorry to hear that..."
+        document.getElementById('life-coach').innerHTML = `<h1> ${advice} ${message.giveAdvice()}</h1>`;
+    } else {
+        advice = 'I dont understand, and I cant help, sorry.';
+    }
 
 }
 
 
-console.log(message.giveAdvice());
+let happyButton = document.getElementById('happy');
+let neutralButton = document.getElementById('neutral');
+let sadButton = document.getElementById('sad');
+
+happyButton.addEventListener('click', generateMessage);
+neutralButton.addEventListener('click', generateMessage);
+sadButton.addEventListener('click', generateMessage);
+
+
+
+
+
+//console.log(message.giveAdvice());
