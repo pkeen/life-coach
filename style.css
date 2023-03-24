@@ -4,10 +4,12 @@ body {
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+    background-color: hsla(199, 0%, 78%, 1);
+    font-family: 'Arial', sans-serif;
 }
 
 #life-advice {
-    max-width: 50%;
+    width: 50%;
     display: block;
 }
 
