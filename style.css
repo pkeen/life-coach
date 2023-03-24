@@ -1,12 +1,14 @@
 body {
     height: 100vh;
     display: flex;
+    flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
 }
 
 #life-advice {
     max-width: 50%;
+    display: block;
 }
 
 h1 {

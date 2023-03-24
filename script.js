@@ -48,7 +48,8 @@ const message = {
         } else {
             advice = 'I dont understand, and I cant help, sorry.';
         }
-        document.getElementById('life-coach').innerHTML = `<h1> ${advice} </h1>`
+        document.getElementById('life-coach').innerHTML = `<h1> ${advice} </h1>`;
+        document.getElementById('refresh').style.display = 'block';
     }
 
 }
@@ -62,4 +63,12 @@ let sadButton = document.getElementById('sad');
 happyButton.addEventListener('click', message.giveAdvice);
 neutralButton.addEventListener('click', message.giveAdvice);
 sadButton.addEventListener('click', message.giveAdvice);
+
+// Try again button (refresh)
+
+function refreshPage() {
+    window.location.reload();
+}
+
+document.getElementById('refresh').addEventListener('click', refreshPage);
 
