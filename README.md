@@ -1,10 +1,6 @@
 * Life Coach
 
-** Usage 
+** Usage
 
-Life Coach offers advice for those in need of guidance. 
-
-Asks the user to select how they are feeling then returns a random piece of life advice. 
-
-(if not already clear as daylight, it's not to be taken seriously)
+Life Coach asks what your current mood is then returns a random piece of advice that will change your life (maybe!)
 
