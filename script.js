@@ -28,34 +28,27 @@ const message = {
 
     ],
 
-    /*
-    getMood () {
-        const mood = prompt('How are you feeling? (happy, neutral or sad)');
-    },
-    */
-
-    giveAdvice () {
+    genMessage () {
         const seriousAction = this.arrSeriousActions[Math.floor(Math.random() * this.arrSeriousActions.length)];
         const sillyAction = this.arrSillyActions[Math.floor(Math.random() * this.arrSillyActions.length)];
         return `You should ${seriousAction} and ${sillyAction}.`;
     },
 
-}
-
-
-const generateMessage = event => {
-    let advice = '';
-    if (event.target === happyButton){
-        advice = "That's great!";
-        document.getElementById('life-coach').innerHTML = `<h1> ${advice} ${message.giveAdvice()}</h1>`;
-    } else if (event.target === neutralButton) {
-        advice = "Ok, well..";
-        document.getElementById('life-coach').innerHTML = `<h1> ${advice} ${message.giveAdvice()}</h1>`;
-    } else if (event.target === sadButton) {
-        advice = "Sorry to hear that..."
-        document.getElementById('life-coach').innerHTML = `<h1> ${advice} ${message.giveAdvice()}</h1>`;
-    } else {
-        advice = 'I dont understand, and I cant help, sorry.';
+    giveAdvice (event) {
+        let advice = '';
+        if (event.target === happyButton){
+            advice = `That's great! ${message.genMessage()}`;
+            
+        } else if (event.target === neutralButton) {
+            advice = "Ok, well.. " + message.genMessage();
+           
+        } else if (event.target === sadButton) {
+            advice = "Sorry to hear that... " + message.genMessage();
+            
+        } else {
+            advice = 'I dont understand, and I cant help, sorry.';
+        }
+        document.getElementById('life-coach').innerHTML = `<h1> ${advice} </h1>`
     }
 
 }
@@ -65,12 +58,8 @@ let happyButton = document.getElementById('happy');
 let neutralButton = document.getElementById('neutral');
 let sadButton = document.getElementById('sad');
 
-happyButton.addEventListener('click', generateMessage);
-neutralButton.addEventListener('click', generateMessage);
-sadButton.addEventListener('click', generateMessage);
+// Add event listeners
+happyButton.addEventListener('click', message.giveAdvice);
+neutralButton.addEventListener('click', message.giveAdvice);
+sadButton.addEventListener('click', message.giveAdvice);
 
-
-
-
-
-//console.log(message.giveAdvice());
